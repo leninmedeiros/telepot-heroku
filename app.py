@@ -12,13 +12,14 @@ app = Flask(__name__)
 TOKEN = os.environ['PP_BOT_TOKEN']
 SECRET = '/bot' + TOKEN
 # paste the url of your application
-URL = ''
+URL = 'https://telepot-heroku.herokuapp.com/'
 
 UPDATE_QUEUE = Queue()
 BOT = telepot.Bot(TOKEN)
 
 
 def on_chat_message(msg):
+    print("I guess I'm listenning...")
     content_type, chat_type, chat_id = telepot.glance(msg)
     BOT.sendMessage(chat_id, 'hello!')
 
@@ -31,5 +32,4 @@ def pass_update():
     UPDATE_QUEUE.put(request.data)  # pass update to bot
     return 'OK'
 
-# unset if was set previously
 BOT.setWebhook(URL + SECRET)
