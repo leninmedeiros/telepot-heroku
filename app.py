@@ -12,7 +12,7 @@ app = Flask(__name__)
 TOKEN = os.environ['PP_BOT_TOKEN']
 SECRET = '/bot' + TOKEN
 # paste the url of your application
-URL = 'https://telepot-heroku.herokuapp.com/'
+URL = 'https://telepot-heroku.herokuapp.com'
 
 UPDATE_QUEUE = Queue()
 BOT = telepot.Bot(TOKEN)
