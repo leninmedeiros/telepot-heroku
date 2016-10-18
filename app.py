@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request
 import telepot
+import time
 
 try:
     from Queue import Queue
@@ -32,4 +33,6 @@ def pass_update():
     UPDATE_QUEUE.put(request.data)  # pass update to bot
     return 'OK'
 
+time.sleep(5)
 BOT.setWebhook(URL + SECRET)
+time.sleep(5)
